@@ -22,6 +22,7 @@ yum -y --installroot=${RHEL_DIR} update
 
 echo "installing software"
 yum -y --installroot=${RHEL_DIR} localinstall ${BASE}/unzip*rpm
+yum -y --installroot=${RHEL_DIR} clean all
 
 echo "RHEL Docker Image" > ${RHEL_DIR}/etc/motd
 
