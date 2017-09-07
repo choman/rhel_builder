@@ -1,6 +1,6 @@
 #!/bin/bash
 
-RHEL_DIR=/rhel7
+RHEL_DIR=/rhel
 JEDI=0
 
 mkdir -p ${RHEL_DIR}/var/lib/rpm
@@ -34,6 +34,8 @@ echo "RHEL Docker Image" > ${RHEL_DIR}/etc/motd
 ##tar -C ${RHEL_DIR}/opt -xpf /scripts/JEDI.tgz
 ##chroot ${RHEL_DIR} /opt/JEDI/Scripts/config.Lockdown -s /opt/JEDI/config
 
+VERSION=$(awk  '{print $7'} ${RHEL_DIR}/etc/redhat-release)
+TYPE=$(awk -F: '{print $7'} ${RHEL_DIR}/etc/system-release-cpe)
 
 echo "cleanup"
 rm ${RHEL_DIR}/etc/yum.repos.d/rhel-dvd.repo
@@ -44,5 +46,5 @@ tar -C ${RHEL_DIR} -cpf /output/rhel_base.tgz .
 echo ""
 echo "---------------------------------------------------------"
 echo ""
-echo "run --> docker import - afrl/rhel7 < output/rhel_base.tgz"
+echo "run --> docker image import - rhel${VERSION}-${TYPE} < output/rhel_base.tgz"
 echo ""
