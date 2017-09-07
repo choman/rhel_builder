@@ -14,5 +14,5 @@ if [ ! -f "/mnt/RPM-GPG-KEY-redhat-release" ]; then
 fi
 
 
-docker container run --rm -v /mnt:/mnt -v `pwd`/output:/output ${img_name}
+time docker container run --rm -v /mnt:/mnt -v `pwd`/output:/output ${img_name}
 
