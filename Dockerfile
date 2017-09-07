@@ -7,7 +7,9 @@ ENV RHEL_DIR=/rhel
 #VOLUME /mnt:/mnt
 
 RUN apt-get -y update && apt-get -y dist-upgrade && apt-get install -y yum rpm
-RUN apt-get -y install vim
+##RUN apt-get -y install vim
+RUN apt-get -y autoclean && apt-get -y autoremove
+RUN rm -rf /var/lib/dpkg /var/lib/apt
 
 ADD src /scripts
 RUN chmod 700 /scripts/script.sh
