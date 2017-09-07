@@ -6,7 +6,13 @@ echo \$verion = $verion
 echo \$img_name = $img_name
 
 
+if [ ! -f "/mnt/RPM-GPG-KEY-redhat-release" ]; then 
+    echo ""
+    echo "ERROR: Unable to locate RHEL distro, please mount to /mnt"
+    echo ""
+    exit
+fi
 
 
-docker container run -v /mnt:/mnt -v `pwd`/output:/output ${img_name}
+docker container run --rm -v /mnt:/mnt -v `pwd`/output:/output ${img_name}
 
