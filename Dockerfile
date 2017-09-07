@@ -1,7 +1,7 @@
 FROM ubuntu:17.04
 
 
-ENV RHEL_DIR=/rhel7
+ENV RHEL_DIR=/rhel
 ##ENV http_proxy=http://128.132.9.10:8080
 ##ENV https_proxy=http://128.132.9.10:8080
 #VOLUME /mnt:/mnt
