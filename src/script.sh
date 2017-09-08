@@ -38,5 +38,5 @@ tar -C ${RHEL_DIR} -cpf /output/rhel_base.tgz .
 echo ""
 echo "---------------------------------------------------------"
 echo ""
-echo "run --> docker image import - rhel${VERSION}-${TYPE} < output/rhel_base.tgz"
+echo "run --> docker image import - rhel${VERSION}-${TYPE} < output/rhel${VERSION}-${TYPE}.tgz"
 echo ""
